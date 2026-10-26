@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VectorHardwareConfiguration>
+  <VectorHardware>
+    <HW_Name>Virtual Channel 1</HW_Name>
+    <HW_Type>1</HW_Type>
+    <HW_Index>1</HW_Index>
+    <HW_DriverVersion>1614000a</HW_DriverVersion>
+    <HW_TransceiverType>22</HW_TransceiverType>
+    <HW_TransceiverState>0</HW_TransceiverState>
+    <HW_TransceiverName>Virtual CAN</HW_TransceiverName>
+    <HW_CAN_FD_Support>1</HW_CAN_FD_Support>
+    <HW_Channel>1</HW_Channel>
+    <HW_SN>100</HW_SN>
+    <BUS_Type>Unknown</BUS_Type>
+    <CHN_Index>0</CHN_Index>
+    <IF_Version>4</IF_Version>
+    <AssignedApplications>
+      <Application>CANalyzer CAN 1</Application>
+      <Application>CANape CAN 1</Application>
+      <Application>CANdito CAN 1</Application>
+      <Application>CANoe CAN 2</Application>
+      <Application>DiagnosticImitator CAN 1</Application>
+      <Application>KWPsim CAN 1</Application>
+      <Application>vFlash CAN 1</Application>
+      <Application>vMeasure CAN 1</Application>
+    </AssignedApplications>
+  </VectorHardware>
+  <VectorHardware>
+    <HW_Name>Virtual Channel 2</HW_Name>
+    <HW_Type>1</HW_Type>
+    <HW_Index>1</HW_Index>
+    <HW_DriverVersion>1614000a</HW_DriverVersion>
+    <HW_TransceiverType>22</HW_TransceiverType>
+    <HW_TransceiverState>0</HW_TransceiverState>
+    <HW_TransceiverName>Virtual CAN</HW_TransceiverName>
+    <HW_CAN_FD_Support>1</HW_CAN_FD_Support>
+    <HW_Channel>2</HW_Channel>
+    <HW_SN>100</HW_SN>
+    <BUS_Type>Unknown</BUS_Type>
+    <CHN_Index>1</CHN_Index>
+    <IF_Version>4</IF_Version>
+    <AssignedApplications>
+      <Application>CANalyzer CAN 2</Application>
+      <Application>CANape CAN 2</Application>
+      <Application>CANdito CAN 2</Application>
+      <Application>CANoe CAN 1</Application>
+      <Application>CCPsim CAN 1</Application>
+      <Application>KCXsim CAN 1</Application>
+      <Application>UDSsim CAN 1</Application>
+      <Application>vMeasure CAN 2</Application>
+      <Application>XCPsim CAN 1</Application>
+    </AssignedApplications>
+  </VectorHardware>
+</VectorHardwareConfiguration>

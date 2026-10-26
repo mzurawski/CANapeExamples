@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="Panel1" Children="Controls" ControlName="ChangeBuffer">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl11" Children="Controls" ControlName="StaticTextControl11">
+      <Property Name="Name">StaticTextControl11</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">562, 98</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 9</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl10" Children="Controls" ControlName="StaticTextControl10">
+      <Property Name="Name">StaticTextControl10</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">501, 98</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 8</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl9" Children="Controls" ControlName="StaticTextControl9">
+      <Property Name="Name">StaticTextControl9</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">440, 98</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 7</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl8" Children="Controls" ControlName="StaticTextControl8">
+      <Property Name="Name">StaticTextControl8</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">379, 98</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 6</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl7" Children="Controls" ControlName="StaticTextControl7">
+      <Property Name="Name">StaticTextControl7</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">318, 98</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 5</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl6" Children="Controls" ControlName="StaticTextControl6">
+      <Property Name="Name">StaticTextControl6</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">257, 97</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 4</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl5" Children="Controls" ControlName="StaticTextControl5">
+      <Property Name="Name">StaticTextControl5</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">196, 98</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl4" Children="Controls" ControlName="StaticTextControl4">
+      <Property Name="Name">StaticTextControl4</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">135, 99</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl3" Children="Controls" ControlName="StaticTextControl3">
+      <Property Name="Name">StaticTextControl3</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">74, 99</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl2" Children="Controls" ControlName="StaticTextControl2">
+      <Property Name="Name">StaticTextControl2</Property>
+      <Property Name="Size">55, 20</Property>
+      <Property Name="Location">13, 99</Property>
+      <Property Name="Font">Arial, 8.25pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">Position 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl1" Children="Controls" ControlName="StaticTextControl1">
+      <Property Name="Name">StaticTextControl1</Property>
+      <Property Name="Size">110, 25</Property>
+      <Property Name="Location">13, 68</Property>
+      <Property Name="Font">Arial, 9.75pt</Property>
+      <Property Name="TextAlign">MiddleCenter</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Text">gArithMaxArray:</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl2" Children="Controls" ControlName="ButtonControl2">
+      <Property Name="Name">ButtonControl2</Property>
+      <Property Name="Size">132, 46</Property>
+      <Property Name="Location">13, 16</Property>
+      <Property Name="Font">Arial, 12pt, style=Bold</Property>
+      <Property Name="BackColor">0, 192, 0</Property>
+      <Property Name="Text">Copy Array</Property>
+      <Property Name="UseTransparentColor">False</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;Change Buffer;2;;</Property>
+      <Property Name="TabIndex">11</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl1" Children="Controls" ControlName="ButtonControl1">
+      <Property Name="Name">ButtonControl1</Property>
+      <Property Name="Size">139, 46</Property>
+      <Property Name="Location">214, 16</Property>
+      <Property Name="Font">Arial, 12pt, style=Bold</Property>
+      <Property Name="BackColor">Lime</Property>
+      <Property Name="Text">Clear Target</Property>
+      <Property Name="UseTransparentColor">False</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;Clear gBuffer1;2;;</Property>
+      <Property Name="TabIndex">10</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl6" Children="Controls" ControlName="TrackBarControl6">
+      <Property Name="Name">TrackBarControl6</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">562, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray9;2;;</Property>
+      <Property Name="TabIndex">9</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl7" Children="Controls" ControlName="TrackBarControl7">
+      <Property Name="Name">TrackBarControl7</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">501, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray8;2;;</Property>
+      <Property Name="TabIndex">8</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl8" Children="Controls" ControlName="TrackBarControl8">
+      <Property Name="Name">TrackBarControl8</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">440, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray7;2;;</Property>
+      <Property Name="TabIndex">7</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl9" Children="Controls" ControlName="TrackBarControl9">
+      <Property Name="Name">TrackBarControl9</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">379, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray6;2;;</Property>
+      <Property Name="TabIndex">6</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl10" Children="Controls" ControlName="TrackBarControl10">
+      <Property Name="Name">TrackBarControl10</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">318, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray5;2;;</Property>
+      <Property Name="TabIndex">5</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl5" Children="Controls" ControlName="TrackBarControl5">
+      <Property Name="Name">TrackBarControl5</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">257, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray4;2;;</Property>
+      <Property Name="TabIndex">4</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl4" Children="Controls" ControlName="TrackBarControl4">
+      <Property Name="Name">TrackBarControl4</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">196, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray3;2;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl3" Children="Controls" ControlName="TrackBarControl3">
+      <Property Name="Name">TrackBarControl3</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">135, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray2;2;;</Property>
+      <Property Name="TabIndex">2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl2" Children="Controls" ControlName="TrackBarControl2">
+      <Property Name="Name">TrackBarControl2</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">74, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArray1;2;;</Property>
+      <Property Name="TabIndex">1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl1" Children="Controls" ControlName="TrackBarControl1">
+      <Property Name="Name">TrackBarControl1</Property>
+      <Property Name="Size">55, 120</Property>
+      <Property Name="Location">13, 123</Property>
+      <Property Name="BorderStyle">Fixed3D</Property>
+      <Property Name="Maximum">20</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TickStyle">TopLeft</Property>
+      <Property Name="MaximumDouble">20</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;gArrray0;2;;</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Property Name="Name">Panel1</Property>
+    <Property Name="Size">624, 255</Property>
+  </Object>
+</Panel>

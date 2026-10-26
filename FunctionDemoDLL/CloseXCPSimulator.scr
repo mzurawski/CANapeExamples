@@ -1,0 +1,106 @@
+/*---------------------------------------------------------------------------
+| File:            CloseXCPSimulator.scr
+|
+| Description:     This CANape script closes the simulator and re-assign the 
+|                  "CANape CAN 1" channel.
+|
+|                  1. close the simulator
+|                  2. re-assign the "CANape CAN 1" channel (if
+|                     "VectorHWConfiguration.xml" file exists)
+|
+| Execution:       The script is started when closing the CANape project
+|                  (Task Manager: When closing the project). 
+ --------------------------------------------------------------------------*/
+
+#define DEVICE      XCPsim
+#define MAX_STRING  256
+
+// === configuration settings - customize here ===
+char debug                         =  0;  // output debug information [0 or 1]
+
+// --- variables ---
+long handle;
+int  numNodes                      =  0;
+int  numAssignedAppl               =  0;
+int  i, j;
+char strXMLVectorHW[MAX_STRING]    = "";
+char strXMLHWType[MAX_STRING]      = "";
+char strXMLChnNr[MAX_STRING]       = "";
+char strXMLHWIndex[MAX_STRING]     = "";
+char strXMLAssAppl[MAX_STRING]     = "";
+char strXMLApplication[MAX_STRING] = "";
+char strApplication[MAX_STRING]    = "";
+char strAssign[MAX_STRING]         = "";
+char chnNr                         =  0;
+char hwType                        =  0;
+char hwIndex                       =  0;
+char strProgramDir[MAX_STRING]     = "";
+char strAssignChn[MAX_STRING]      = "";
+
+// === script ===
+
+// get the CANape installation path
+GetCanapeProperty(strProgramDir, "ProgramPath");
+
+StrCpy(strAssignChn, strProgramDir);
+StrCat(strAssignChn, "AssignChannel.exe");
+if (FileExists(strAssignChn)) {
+  write ("ERROR: The file '%s' does not exist!", strAssignChn);
+}
+
+// go offline
+DEVICE.Offline();
+
+// close the simulator
+Call("taskkill", " /F /IM XCPsim.exe /T");
+Sleep(1000);
+
+// re-assign the "CANape CAN 1" channel
+if (!FileExists("VectorHWConfiguration.xml")) {
+  // open the XML file
+  handle = XmlLoadDoc("VectorHWConfiguration.xml");
+  if (handle <= 0) {
+    Write("ERROR: Could not open the XML file to re-assign the CAN channel!"); 
+  }
+  else {
+    // get the number of "VectorHardware" nodes
+    StrCpy(strXMLVectorHW, "/VectorHardwareConfiguration/VectorHardware");
+    numNodes = XmlGetNumberOfNodes(handle, strXMLVectorHW); 
+
+    for (i = 0; i < numNodes; ++i) {
+      // get the number of "AssignedApplications/Application" of this node
+      SPrint(strXMLAssAppl, "//VectorHardwareConfiguration//VectorHardware[%d]//AssignedApplications//Application", (i+1));
+      numAssignedAppl  = XmlGetNumberOfNodes(handle, strXMLAssAppl);
+      if (debug == 1) write("Assigned No: %d\n", numAssignedAppl);
+
+      for (j = 0; j < numAssignedAppl; j++) {
+        // get each "Application"
+        SPrint(strXMLApplication, "//VectorHardwareConfiguration//VectorHardware[%d]//AssignedApplications//Application[%d]", (i+1), (j+1));
+        StrCpy(strApplication, "\n");
+        XmlGetNodeString(handle, strXMLApplication, strApplication);
+        if (debug == 1) write ("Application: %s\n", strApplication);
+
+        // re-assign the "CANape CAN 1" channel
+        if (StrCmp(strApplication, "CANape CAN 1", 12) == 0) {
+
+          StrCpy(strXMLHWType,  "/VectorHardwareConfiguration/VectorHardware/HW_Type");
+          hwType = XmlGetNodeNumeric(handle, strXMLHWType, i); 
+
+          StrCpy(strXMLHWIndex, "/VectorHardwareConfiguration/VectorHardware/HW_Index");
+          hwIndex = XmlGetNodeNumeric(handle, strXMLHWIndex, i); 
+
+          StrCpy(strXMLChnNr,   "/VectorHardwareConfiguration/VectorHardware/HW_Channel");
+          chnNr = XmlGetNodeNumeric(handle, strXMLChnNr, i); 
+
+          SPrint(strAssign, "-Application:CANape -AppChannel:1 -BusType:1 -ChannelNumber:%d -HWType:%d -HWIndex:%d",
+                 chnNr, hwType, hwIndex);
+          Call(strAssignChn, strAssign);
+        }
+      }
+    }
+
+    // close the XML file
+    XmlReleaseDoc(handle);
+  }
+}
+/*-------------------------------------------------------------------------*/

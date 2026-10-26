@@ -1,0 +1,4 @@
+gArithMaxV=0;
+gArithMinV=0;
+Start();
+ClearWriteWindow();

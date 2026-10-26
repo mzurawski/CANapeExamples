@@ -1,0 +1,3 @@
+ClearWriteWindow();
+ChangeBuffer1D(environment.gArithMaxArray, environment.gBuffer1);
+Write("All values from gArithMaxArray are copied to gBuffer1.");

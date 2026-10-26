@@ -1,0 +1,3 @@
+ClearWriteWindow();
+gArithMinB = ArithMinB(environment.gArithMaxArray);
+Write("The minimum value of gArithMaxArray is: %.0f", gArithMinB);

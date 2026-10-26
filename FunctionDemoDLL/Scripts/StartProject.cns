@@ -1,0 +1,9 @@
+sprint (environment.gInputString, "Hello World!");
+sprint (environment.gOutputString, "!dlroW olleH");
+ClearWriteWindow();
+
+Call ("StartXCPSimulator.scr");
+
+Sleep(1000);
+
+ClearWriteWindow();

@@ -1,0 +1,3 @@
+ClearWriteWindow();
+gArithMiddleB = ArithMiddleB(environment.gArithMaxArray);
+Write("The arithmetic average of gArithMaxArray is: %.3f", gArithMiddleB);

@@ -1,0 +1,3 @@
+StrCpy(gInputString, "", 0);
+StrCpy(gOutputString, "", 0);
+ClearWriteWindow();

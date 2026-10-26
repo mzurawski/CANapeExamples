@@ -1,0 +1,3 @@
+ClearWriteWindow();
+gArithMaxB = ArithMaxB(environment.gArithMaxArray);
+Write("The maximum value of gArithMaxArray is: %.0f", gArithMaxB);

@@ -1,0 +1,275 @@
+/*---------------------------------------------------------------------------
+| File:            StartXCPSimulator.scr
+|
+| Description:     This CANape script starts the simulator with the command
+|                  line options for the different bus types.
+|                  The bus type for CANape has to be configured in the driver
+|                  settings of the XCP device.
+|
+|                  1. create and read the Vector HW configuration
+|                  2. offer real HW loop (if configured and real HW
+|                     exists)
+|                  3. assign the channels (CANape and simulator)
+|                  4. start the simulator
+|
+| Execution:       The script is started when loading the CANape project
+|                  (Task Manager: When loading the project).
+|
+| Configuration:   Switch in the script:  queryRealHW, queryAll
+ --------------------------------------------------------------------------*/
+
+#define DEVICE      XCPsim
+#define MAX_STRING  256
+
+// === configuration settings - customize here ===
+char  debug                            =    0;  // output debug information [0 or 1]
+char  queryRealHW                      =    0;  // enable the query dialog to query if real
+                                                // HW should be used (CAN loop) [0 or 1]
+char  queryAll                         =    0;  // enable the query dialog to get all bus
+                                                // types for the simulator [0 or 1]
+
+// === variables ===
+long  handle                           =    0;
+int   numNodes                         =    0;
+int   i                                =    0;
+char  strXMLVectorHW[MAX_STRING]       =   "";
+char  strXMLHWType[MAX_STRING]         =   "";
+char  strXMLBusType[MAX_STRING]        =   "";
+char  strXMLHWChannelIndex[MAX_STRING] =   "";
+char  hwBusType[MAX_STRING]            =   "";
+char  strBusType[MAX_STRING]           =   "";
+char  strMessage[MAX_STRING]           =   "";
+char  strAssign[MAX_STRING]            =   "";
+char  virtualAssign                    = true;
+char  hwType                           =    0;
+char  hwChannelsExist                  =    0;
+char  hwChannelIndex                   =    0;
+char  busType                          =    0;
+char  result                           =    0;
+char  canHw                            =    0;
+int   timeout                          =  100;  // max timeout for creating the file [ms x 10]
+int   timeoutCtr                       =    0;
+char  strProgramDir[MAX_STRING]        =   "";
+char  strAssignChn[MAX_STRING]         =   "";
+char  strXcpSimPath[MAX_STRING]        =   "";
+int   FoundCANHWCHannels[127]          =   "";
+char  FoundCANHWCHannelsCount          =    0;
+char  onlineExamples[MAX_STRING]       =   "";
+char  applicationTitle[MAX_STRING]     =   "";
+char  appTitleShort[MAX_STRING]        =   "";
+int   position                         =    0;
+char  registryPath[MAX_STRING]         =   "";
+short mainVer                          =    0;
+
+FoundCANHWCHannels[0] = 1;
+FoundCANHWCHannels[1] = 2;
+
+// === script ===
+
+// get the CANape installation path
+GetCanapeProperty(strProgramDir, "ProgramPath");
+StrCpy(strAssignChn, strProgramDir);
+StrCat(strAssignChn, "AssignChannel.exe");
+
+if (FileExists(strAssignChn)) {
+  write ("ERROR: The file '%s' does not exist!", strAssignChn);
+}
+
+GetCanapeProperty(applicationTitle, "AppTitle");
+StrTokenize(appTitleShort, applicationTitle, " ", position);
+GetCanapeProperty(mainVer, "MainVersion");
+Sprint(registryPath, "HKEY_LOCAL_MACHINE\\SOFTWARE\\VECTOR\\Vector %s %d Examples\\Online Examples\\Path", appTitleShort, mainVer);
+result = ReadStringFromRegistry(registryPath, onlineExamples);
+if ((result != 0) || (StrCmp(onlineExamples, "") == 0))
+{
+  Write("ERROR: Wrong or empty registry path for the example!");
+  Write(" (%s)", registryPath);
+  cancel;
+}
+
+// set simulator path
+SPrint(strXcpSimPath, "%s\\_Simulators\\XCPSim\\XCPsim.exe", onlineExamples);
+
+// --- get Vector HW configuration ---
+// remove an existing config file first
+while ((!FileExists("VectorHWConfiguration.xml")) && (timeoutCtr < 20)) {
+  FileRemove("VectorHWConfiguration.xml");
+  Sleep(timeout);
+  timeoutCtr++;
+  if (debug == 1) write ("Timeout: %d", timeoutCtr);
+}
+
+// create a new "VectorHWConfiguration.xml" file
+Call(strAssignChn, "-GetHWConfig");
+timeoutCtr = 0;
+while ((FileExists("VectorHWConfiguration.xml")) && (timeoutCtr < 20)) {
+  Sleep(timeout);
+  timeoutCtr++;
+  if (debug == 1) write ("Timeout: %d", timeoutCtr);
+}
+
+if (!FileExists("VectorHWConfiguration.xml")) {
+  // open the XML file
+  for (i = 0; i < 10; i++) {
+    handle = XmlLoadDoc("VectorHWConfiguration.xml");
+    if (handle > 0)
+    {
+      // valid handle
+      break;
+    }
+    Sleep(100);
+  }
+  if (handle <= 0) {
+    Write("ERROR: Could not open the XML file!");
+  }
+  else {
+    // get the number of "VectorHardware" nodes
+    StrCpy(strXMLVectorHW, "/VectorHardwareConfiguration/VectorHardware");
+    numNodes = XmlGetNumberOfNodes(handle, strXMLVectorHW);
+    if (debug == 1) write ("Nr. of nodes: %d", numNodes);
+
+    for (i = 0; i < numNodes; i++) {
+      // get "HW_Type" and "BUS_Type" of each node
+      StrCpy(strXMLHWType,  "/VectorHardwareConfiguration/VectorHardware/HW_Type");
+      canHw = XmlGetNodeNumeric(handle, strXMLHWType, i);
+
+      StrCpy(strXMLBusType, "/VectorHardwareConfiguration/VectorHardware/BUS_Type");
+      XmlGetNodeString(handle, strXMLBusType, hwBusType, i);
+
+      // check if a CANcab/CANpiggy is connected to the hardware
+      if (StrCmp(hwBusType, "CAN", 3) == 0) {
+        // do not count the virtual channels
+        if (canHw != 1) {
+          hwChannelsExist++;
+          StrCpy(strXMLHWChannelIndex, "/VectorHardwareConfiguration/VectorHardware/HW_Channel");
+          hwChannelIndex = XmlGetNodeNumeric(handle, strXMLHWChannelIndex, i);
+          FoundCANHWCHannels[FoundCANHWCHannelsCount] = hwChannelIndex;
+          FoundCANHWCHannelsCount++;
+          // get first HW channel
+          if (hwChannelsExist == 1) {
+            hwType = canHw;
+          }
+        }
+      }
+      else {
+        if (debug == 1) write("Bus type is not a CAN channel!");
+      }
+    }
+    // close the XML file
+    XmlReleaseDoc(handle);
+  }
+}
+else {
+  Write("ERROR: XML file does not exist!");
+}
+if (debug == 1) write("CAN channels: %d", hwChannelsExist);
+
+// ---------- assign the channels and start the simulator ----------
+// selection dialog to get the bus type
+if (queryAll == 1) {
+  busType = UserQueryDialog(" CAN | UDP/IP | TCP/IP | COM | FlexRay ", 0,
+                             "Which bus type should be used for the XCPsim?");
+}
+else {
+  busType = 0; // only offer CAN
+}
+
+switch(busType)
+{
+  case 0: // --- [CAN] ---
+    // if real HW exists
+    if ((hwChannelsExist >= 2) && (queryRealHW == 1)) {
+      result = UserQueryDialog(" Real HW channels | Virtual channels ", 0,
+                               "Do you want to use real CAN hardware channels?");
+      switch(result)
+      {
+        case 0: // [Real HW channels]
+          virtualAssign = false;
+
+          // assign CANape
+          Sprint(strAssign, "-Application:CANape -AppChannel:1 -BusType:1 -ChannelNumber:%d -HWType:%d", FoundCANHWCHannels[0], hwType);
+          StrCat(strAssign, " -HWIndex:1");
+          Call(strAssignChn, strAssign);
+
+          // assign the simulator
+          Sprint(strAssign, "-Application:XCPsim -AppChannel:1 -BusType:1 -ChannelNumber:%d -HWType:%d", FoundCANHWCHannels[1], hwType);
+          StrCat(strAssign, " -HWIndex:1");
+          Call(strAssignChn, strAssign);
+          Call(strXcpSimPath, "-cro1 -dto2 -b500000 -t1 -cc1");
+          break;
+
+        case 1: // [Virtual channels]
+          virtualAssign = true;
+          break;
+      }
+    }
+    // virtual channels
+    else {
+      virtualAssign = true;
+    }
+
+    if (virtualAssign == true) {
+      Call(strAssignChn, "-Application:CANape -AppChannel:1 -BusType:1 -ChannelNumber:1 -HWType:1 -HWIndex:1");
+      Call(strAssignChn, "-Application:XCPsim -AppChannel:1 -BusType:1 -ChannelNumber:2 -HWType:1 -HWIndex:1");
+      Sleep (500);
+      Call(strXcpSimPath, "-cro1 -dto2 -t1 -cc1");
+    }
+    Sleep (1000);
+
+    break;
+
+  case 1: // --- [UDP/IP] ---
+    Call(strXcpSimPath, "-udp -t1 -cc1");
+    StrCpy(strBusType, "UDP");
+    break;
+
+  case 2: // --- [TCP/IP] ---
+    Call(strXcpSimPath, "-tcp -t1 -cc1");
+    StrCpy(strBusType, "TCP");
+    break;
+
+  case 3: // --- [COM] ---
+    Call(strXcpSimPath, "-com1 -t1 -cc1");
+    StrCpy(strBusType, "COM");
+    break;
+
+  case 4: // --- [FlexRay] ---
+    Call(strXcpSimPath, "-fr -t1 -cc1");
+    StrCpy(strBusType, "FlexRay");
+    break;
+
+  default:
+    break;
+}
+
+Sleep(500); //wait for simulator start
+
+// activate the device and go online
+// --- [CAN] ---
+if (busType == 0) {
+  if (!DEVICE.IsActive())
+{
+DEVICE.activate();
+}
+  for(i = 1; i < 10; i++){
+    if(DEVICE.IsActive()){
+      Sleep(500);
+      DEVICE.Online();
+      break;
+    }
+    Sleep(200);
+
+  }
+
+}
+else {
+  StrCpy(strMessage, "Open the XCP driver settings and change the bus type to ");
+  StrCat(strMessage, strBusType);
+  StrCat(strMessage, ".");
+
+  UserQueryDialog(" OK ", 1, strMessage);
+}
+
+// foreground CANape
+ComeToForeground();
+/*-------------------------------------------------------------------------*/

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=7.1.43.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=7.1.43.0, Culture=neutral, PublicKeyToken=null" Name="Panel1" Children="Controls">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.43.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl1" Children="Controls">
+      <Property Name="Name">StaticTextControl1</Property>
+      <Property Name="Size">225, 19</Property>
+      <Property Name="Location">18, 19</Property>
+      <Property Name="Font">Arial, 12pt, style=Bold</Property>
+      <Property Name="Text">Start and Stop Measurement</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.43.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl2" Children="Controls">
+      <Property Name="Name">ButtonControl2</Property>
+      <Property Name="Size">73, 26</Property>
+      <Property Name="Location">151, 63</Property>
+      <Property Name="Font">Microsoft Sans Serif, 9.75pt</Property>
+      <Property Name="BackColor">Red</Property>
+      <Property Name="Text">Stop</Property>
+      <Property Name="ImageFile">Choose Image...</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;StopMeasurement;2;;</Property>
+      <Property Name="TabIndex">1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.43.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl1" Children="Controls">
+      <Property Name="Name">ButtonControl1</Property>
+      <Property Name="Size">72, 26</Property>
+      <Property Name="Location">30, 63</Property>
+      <Property Name="Font">Microsoft Sans Serif, 9.75pt</Property>
+      <Property Name="BackColor">Yellow</Property>
+      <Property Name="Text">Start</Property>
+      <Property Name="ImageFile">Choose Image...</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;StartMeasurement;2;;</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Property Name="Name">Panel1</Property>
+    <Property Name="Size">260, 105</Property>
+  </Object>
+</Panel>

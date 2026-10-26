@@ -1,0 +1,3 @@
+Stop();
+sleep(500);
+ClearWriteWindow();

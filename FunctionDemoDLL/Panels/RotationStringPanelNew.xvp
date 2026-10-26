@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="Panel1" Children="Controls" ControlName="RotationStringPanelNew">
+    <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl2" Children="Controls" ControlName="ButtonControl2">
+      <Property Name="Name">ButtonControl2</Property>
+      <Property Name="Size">125, 26</Property>
+      <Property Name="Location">189, 167</Property>
+      <Property Name="Font">Arial, 9.75pt</Property>
+      <Property Name="Text">Clear Window</Property>
+      <Property Name="UseTransparentColor">False</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;ClearOutput TxtButton;2;;</Property>
+      <Property Name="TabIndex">5</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl2" Children="Controls" ControlName="TextBoxControl2">
+      <Property Name="Name">TextBoxControl2</Property>
+      <Property Name="Size">302, 22</Property>
+      <Property Name="Location">12, 226</Property>
+      <Property Name="AlarmUpperTextColor">ControlText</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">ControlText</Property>
+      <Property Name="BoxFont">Arial, 9.75pt</Property>
+      <Property Name="AlarmUpperFont">Arial, 9.75pt</Property>
+      <Property Name="AlarmGeneralSettings">1;0;0;100</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="TextFont">Arial, 9.75pt</Property>
+      <Property Name="DescriptionText">Output:</Property>
+      <Property Name="AlarmLowerFont">Arial, 9.75pt</Property>
+      <Property Name="DescriptionSize">49, 22</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;StringOutput;2;;</Property>
+      <Property Name="TabIndex">3</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl1" Children="Controls" ControlName="TextBoxControl1">
+      <Property Name="Name">TextBoxControl1</Property>
+      <Property Name="Size">302, 42</Property>
+      <Property Name="Location">12, 112</Property>
+      <Property Name="AlarmUpperTextColor">ControlText</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">ControlText</Property>
+      <Property Name="BoxFont">Arial, 9.75pt</Property>
+      <Property Name="AlarmUpperFont">Arial, 9.75pt</Property>
+      <Property Name="AlarmGeneralSettings">1;0;0;100</Property>
+      <Property Name="DisplayLabel">Top</Property>
+      <Property Name="TextFont">Arial, 9.75pt</Property>
+      <Property Name="DescriptionText">Input:  </Property>
+      <Property Name="AlarmLowerFont">Arial, 9.75pt</Property>
+      <Property Name="DescriptionSize">302, 20</Property>
+      <Property Name="SymbolConfiguration">3;2;;environment;n/a;gInputString;2;;</Property>
+      <Property Name="TabIndex">2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl1" Children="Controls" ControlName="StaticTextControl1">
+      <Property Name="Name">StaticTextControl1</Property>
+      <Property Name="Size">302, 59</Property>
+      <Property Name="Location">12, 13</Property>
+      <Property Name="Font">Arial, 12pt, style=Bold</Property>
+      <Property Name="TextAlign">TopCenter</Property>
+      <Property Name="Text">The Text in the Input field will be displayed reverse after a click on the "FlipStringTxt" button.</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=8.1.91.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl1" Children="Controls" ControlName="ButtonControl1">
+      <Property Name="Name">ButtonControl1</Property>
+      <Property Name="Size">135, 26</Property>
+      <Property Name="Location">12, 167</Property>
+      <Property Name="Font">Arial, 9.75pt</Property>
+      <Property Name="Text">RotateStringTxt</Property>
+      <Property Name="UseTransparentColor">False</Property>
+      <Property Name="SymbolConfiguration">3;32;;;;RotateStringTxtButton;2;;</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Property Name="Name">Panel1</Property>
+    <Property Name="Size">327, 278</Property>
+  </Object>
+</Panel>
